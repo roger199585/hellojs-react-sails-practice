@@ -6,6 +6,13 @@
  */
 
 module.exports = {
-	
+	create: function (req, res) {
+		var name = req.param('name')
+		console.log(req.allParams())
+		User.create({name})
+			.then(function(user) {
+				res.redirect("/user")
+			})
+	}
 };
 
